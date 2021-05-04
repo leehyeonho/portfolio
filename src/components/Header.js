@@ -6,7 +6,7 @@ class Header extends Component {
           <header>
             <nav class="menu">
               <ul>
-                <li><a href="#root">About Me</a></li>
+                <li><a href="#about_me_container">About Me</a></li>
                 <li><a href="#skills_Container">Skills</a></li>
                 <li><a href="#work_Container">Work Experiences</a></li>
                 <li><a href="#project_Container">Project</a></li>

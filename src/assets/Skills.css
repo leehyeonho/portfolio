@@ -1,0 +1,60 @@
+.skills_Container {
+  text-align: center;
+  margin-top: 500px;
+}
+
+.skills_Container h1 {
+  font-size: 40px;
+}
+
+.skills_Container ul {
+  padding-left: 0;
+  list-style: none;
+  font-size: 3rem;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  text-align: center;
+}
+
+.skills_Container ul li {
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.skills_Container ul li i {
+  color: #868e96;
+}
+
+.skills_Container ul li i:hover {
+  color: #645beb;
+}
+
+.skills_Container ul li p {
+  color: #868e96;
+  font-size: 20px;
+}
+
+.hr_skills {
+  border-top: 1px solid #bbb;
+  width: 20%;
+}
+
+.img_crop {
+  max-width: 220px;
+  max-height: 190px;
+}
+
+.img_crop img {
+  filter: grayscale(100%);
+  opacity: 0.7;
+  width: 200px;
+  height: 150px;
+  display: block;
+  max-width: initial;
+}
+
+.img_crop img:hover {
+  filter: grayscale(0%);
+  opacity: 0.8;
+}

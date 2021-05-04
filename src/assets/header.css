@@ -1,0 +1,36 @@
+.menu {
+  position: fixed;
+  top: 0;
+  /* width: 100% */
+  left: 0;
+  right: 0;
+}
+
+.menu ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+  width: inherit;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.menu ul li {
+
+}
+
+.menu ul li a {
+	display: block;
+	color: #000000;
+	padding: 8px;
+	text-decoration: none;
+	text-align: center;
+	font-weight: bold;
+  padding: 20px;
+}
+
+.menu ul li a:hover {
+			background-color: #666;
+			color: white;
+}

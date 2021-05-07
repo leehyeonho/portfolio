@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../assets/Skills.css';
+import '../assets/css/Skills.css';
 import rails from '../assets/images/rails.png'
 class Skills extends Component {
     render() {

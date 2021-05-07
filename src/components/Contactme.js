@@ -1,18 +1,16 @@
 import React, {Component} from 'react';
-import '../assets/css/aboutme.css';
-import AboutmeContent from '../components/AboutmeContent'
+import '../assets/css/contactme.css';
 
-class Aboutme extends Component {
+class Contactme extends Component {
     render() {
         return (
-          <div class="about_me_container" id="about_me_container">
-            <div class="about_me">
-            <h1 class="name">
-              이 현호
+          <div class="contactme_container" id="contactme_container">
+            <div class="contact_me">
+            <h1 class="title">
+              CONTACT ME
               </h1>
               <div id="content">
               <p>
-                <AboutmeContent />
               </p>
               </div>
               <div class="sns_tag">
@@ -27,4 +25,4 @@ class Aboutme extends Component {
     }
 }
 
-export default Aboutme;
+export default Contactme;

@@ -7,12 +7,14 @@
 .about_me .name {
   font-size: 40px;
   line-height: 1.1;
+  margin-bottom: 50px;
 }
 
 .about_me #content {
   font-size: 20px;
   color: #666;
   margin-left: 20px;
+  height: 200px;
 }
 
 .sns_tag i {

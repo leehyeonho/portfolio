@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../assets/Work.css';
+import '../assets/css/Work.css';
 class Work extends Component {
     render() {
         return (
@@ -19,7 +19,7 @@ class Work extends Component {
 
                   <p class="company">충북대학교 그린엔진 및 에너지 시스템 연구실</p>
                   <p class="used">#nodejs</p>
-                  <p class="date">2020.04.08~</p>
+                  <p class="date">2020.04.08~2021.02.01</p>
                 </div>
               </div>
               <div class="work_card">
@@ -33,7 +33,7 @@ class Work extends Component {
                 <div class="work_text">
                   <p class="company">커스텀랩(customlab)</p>
                   <p class="used">#nodejs</p>
-                  <p class="date">2020.08.25~</p>
+                  <p class="date">2020.08.25~2012.02.01</p>
                 </div>
               </div>
               <div class="work_card">

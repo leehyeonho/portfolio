@@ -30,9 +30,69 @@
  font-family: 'LotteMartDream', sans-serif;
 }
 
+html{
+  font-size:10px;
+}
+
 body {
   font-family:'LotteMartDream';
   background-color: #e0e0e0;
+  width: 100%;
+  padding: 0;
   margin: 0 auto;
-  margin-top: 40px;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+
+a {
+  text-decoration: none;
+}
+
+hr{
+  margin-bottom: 20px;
+  border-top: 1px solid #bbb;
+  width: 20%;
+}
+
+h1{
+  font-size: 40px;
+}
+
+li{
+  list-style: none;
+  text-decoration: none;
+}
+
+button{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  z-index: 100;
+}
+
+#prev{
+  top: calc(50% - 50px);
+  left: 0;
+  background: rgba(56, 156, 238, 0.5);
+}
+
+#next{
+  top: calc(50% - 50px);
+  right: 0;
+  background: rgba(56, 156, 238, 0.5);
+}
+
+.container{
+  text-align: center;
+  padding-top: 50px;
+  width: 100%;
+  height: calc(100vh - 50px);
+  min-height: 500px;
 }

@@ -3,6 +3,10 @@
   top: 0;
   right: 0;
   background-color: #e0e0e0;
+  width: 100%;
+  font-size: 1.6rem;
+  box-shadow: 0px 4px 4px -4px gray;
+  z-index: 100;
 }
 
 .big-size-menu, .small-size-menu {
@@ -32,7 +36,7 @@
 	display: none;
 }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+@media only screen and (max-device-width: 480px), (max-width: 600px) {
 	.big-size-menu{
 		display: none;
 	}

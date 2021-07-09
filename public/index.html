@@ -2,25 +2,86 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-sacle=1.0" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
     <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
     <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link href="/src/assets/css/common.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/1a82f71215.js" crossorigin="anonymous"></script>
     <title>leehyeonho.github.io</title>
+    <script>
+      var ml = 0;
+      var workCnt = currentWorkItem($('.work_list').width());
+      function currentWorkItem(width) {
+        if(width > 1250) {
+            return 4;
+        } else if (width > 950) {
+            return 3;
+        } else if (width > 650) {
+            return 2;
+        } else {
+            return 1;
+        }
+      }
+
+      function resize(params) {
+        ml = 0;
+        $('.work_list').animate({'margin-left': ml + 'px'}, 0, function() {
+          workSize = $('.work_list').width();
+          workCard = $('.work_card');
+          workCnt = currentWorkItem($('.work_list').width());
+          for(var i = 0;i<workCard.length;i++) {
+            workCard[i].style.minWidth = workSize/workCnt-30 + "px";
+          }
+          $('#next').prop("disabled", false);
+        });
+      }
+
+      $(function(){
+        resize();
+        $(window).resize(function() {
+          resize();
+        });
+        $('#next').click(function() {
+          $(this).prop("disabled", true);
+          thisUl = $(this).siblings('ul');
+          var liCnt = thisUl.children().length - workCnt;
+          width = $('.work_card').width() + 30;
+          
+          if( ml == -(width * liCnt)) {
+            return false;
+          } else {
+            ml -= width;
+            thisUl.animate({'margin-left': ml + 'px'}, 1000, function() {
+              $('#next').prop("disabled", false);
+            })
+          }
+          $('#prev').prop("disabled", false);
+        });
+
+        $('#prev').click(function() {
+          $(this).prop("disabled", true);
+          thisUl = $(this).siblings('ul');
+          var liCnt = thisUl.children().length - workCnt;
+          width = $('.work_card').width() + 30;
+          if( ml == 0) {
+            return false;
+          } else {
+            ml += width;
+            thisUl.animate({'margin-left': ml + 'px'}, 1000, function() {
+              $('#prev').prop("disabled", false);
+            })
+          }
+          $('#next').prop("disabled", false);
+        });
+      });
+    </script>
   </head>
-  <body id="root">
+  <body >
     <noscript>You need to enable JavaScript to run this page.</noscript>
+    <div id="root"></div>
   </body>
 </html>

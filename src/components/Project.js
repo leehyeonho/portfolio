@@ -1,59 +1,81 @@
-import React, {Component} from 'react';
+import React from 'react';
 import '../assets/css/Project.css';
-class Project extends Component {
-    render() {
-        return (
-          <div class="project_Container" id="project_Container">
-            <h1 class="project">Project</h1>
-            <hr class="hr_project"></hr>
-            <div class="project_card_container">
-              <div class="project_card">
-                <div class="project_banner">
-                  <div class="project_blurred">
-                  </div>
-                  <div class="project_title">
-                  <p class="title">쇼핑몰 구현</p>
-                  </div>
-                </div>
-                <div class="project_text">
 
-                  <p class="content">로그인/장바구니/결제 등 쇼핑몰 구현</p>
-                  <p class="used">#jsp</p>
-                  <p class="date">2018.03.01~2018.6.20</p>
-                </div>
-              </div>
-              <div class="project_card">
-                <div class="project_banner">
-                  <div class="project_blurred">
-                  </div>
-                  <div class="project_title">
-                  <p class="title">포트폴리오 공유 사이트</p>
-                  </div>
-                </div>
-                <div class="project_text">
-                  <p class="content">사용자들이 작성한 포트폴리오를 공유하고, 서로 평가하여 보완할 수 있는 사이트</p>
-                  <p class="used">#jsp</p>
-                  <p class="date">2018.09.10~2018.12.15</p>
-                </div>
-              </div>
-              <div class="project_card">
-                <div class="project_banner">
-                  <div class="project_blurred">
-                  </div>
-                  <div class="project_title">
-                  <p class="title">강의 도움 웹 애플리케이션</p>
-                  </div>
-                </div>
-                <div class="project_text">
-                  <p class="content">전북대학교 캡스톤프로젝트</p>
-                  <p class="used">#rubyonrails</p>
-                  <p class="date">2019.04.15~2020.06.10</p>
-                </div>
+function Project() {
+  return (
+    <div className="container project_Container" id="project_Container">
+      <div className="container_top">
+        <h1 className="project_title">Personal Project</h1>
+        <hr className="hr_project_experiences"></hr>
+      </div>
+      <div className="inner_container">
+        <button id="prev">PREV</button>
+        <ul className="project_list">
+          <li className="project_card">
+            <div className="project_card_top">
+              <div className="project_title">포트폴리오 공유 사이트 Pofo</div>
+              <hr></hr>
+            </div>
+            <div className="project_card_middle">
+              <div className="used">#nodejs</div>
+              <div className="used">#mysql</div>
+              <div className="content">
+                <span>포트폴리오 공유를 위한 커뮤니티 목적</span>
+                <span>CRUD, 회원 관리 등</span>
+                <span></span>
               </div>
             </div>
-          </div>
-        );
-    }
-}
+            <div className="project_card_bottom">
+              <hr></hr>
+              <div className="project_company"></div>
+              <div className="date">2018.03.01~2018.6.20</div>
+            </div>
+          </li>
+          <li className="project_card">
+            <div className="project_card_top">
+              <div className="project_title">강의 도움 웹 애플리케이션 Qplz</div>
+              <hr></hr>
+            </div>
+            <div className="project_card_middle">
+              <div className="used">#rubyonrails</div>
+              <div className="used">#mysql</div>
+              <div className="content">
+                <span>강사와 청중 간 커뮤니케이션 활성화</span>
+                <span>실시간 채팅</span>
+                <span>강사별 private room 개설</span>
+                <span></span>
+              </div>
+            </div>
+            <div className="project_card_bottom">
+            <hr></hr>
+              <div className="date">2018.09.10~2018.12.15</div>
+            </div>
+          </li>
+          <li className="project_card">
+            <div className="project_card_top">
+              <div className="project_title">쇼핑몰 구현</div>
+              <hr></hr>
+            </div>
+            <div className="project_card_middle">
+              <div className="used">#javajsp</div>
+              <div className="used">#oracle</div>
+              <div className="content">
+                <span>CRUD, 회원 관리, 장바구니</span>
+                <span>카카오톡 결제API(test)</span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <div className="project_card_bottom">
+            <hr></hr>
+              <div className="date">2019.04.15~2020.06.10</div>
+            </div>
+          </li>
+        </ul>
+        <button id="next">NEXT</button>
+      </div>
+    </div>
+  );}
 
 export default Project;

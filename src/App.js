@@ -4,7 +4,6 @@ import Aboutme from './components/Aboutme'
 import Skills from './components/Skills'
 import Work from './components/Work'
 import Project from './components/Project'
-import Contactme from './components/Contactme'
 
 import './assets/css/common.css';
 
@@ -16,7 +15,6 @@ function App() {
       <Skills />
       <Work />
       <Project />
-      < Contactme />
     </div>
   );
 }

@@ -9,7 +9,7 @@ function Work() {
         <hr className="hr_work_experiences"></hr>
       </div>
       <div className="inner_container">
-        <button id="prev">PREV</button>
+        <button id="work_prev">PREV</button>
         <ul className="work_list">
           <li className="work_card">
             <div className="work_card_top">
@@ -56,7 +56,7 @@ function Work() {
             </div>
           </li>
         </ul>
-        <button id="next">NEXT</button>
+        <button id="work_next">NEXT</button>
       </div>
     </div>
   );}

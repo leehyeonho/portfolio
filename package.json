@@ -1,6 +1,6 @@
 {
-  "homepage": "http://leehyeonho.github.io/react-github-pages",
-  "name": "react-github-pages",
+  "homepage": "http://leehyeonho.github.io/portfolio",
+  "name": "portfolio",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

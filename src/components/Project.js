@@ -9,11 +9,12 @@ function Project() {
         <hr className="hr_project_experiences"></hr>
       </div>
       <div className="inner_container">
-        <button id="prev">PREV</button>
+        <button id="project_prev">PREV</button>
         <ul className="project_list">
           <li className="project_card">
             <div className="project_card_top">
               <div className="project_title">포트폴리오 공유 사이트 Pofo</div>
+              <div className="project_url"><a href="https://github.com/leehyeonho/kr.ac.jbnu.se.awp.gitplay4" target="_blank" rel="noopener noreferrer">github link</a></div>
               <hr></hr>
             </div>
             <div className="project_card_middle">
@@ -34,6 +35,7 @@ function Project() {
           <li className="project_card">
             <div className="project_card_top">
               <div className="project_title">강의 도움 웹 애플리케이션 Qplz</div>
+              <div className="project_url"><a href="https://github.com/leehyeonho/Qplz-2019capstone" target="_blank" rel="noopener noreferrer">github link</a></div>
               <hr></hr>
             </div>
             <div className="project_card_middle">
@@ -54,6 +56,7 @@ function Project() {
           <li className="project_card">
             <div className="project_card_top">
               <div className="project_title">쇼핑몰 구현</div>
+              <div className="project_url"><a href="https://github.com/leehyeonho/jsp_shop" target="_blank" rel="noopener noreferrer">github link</a></div>
               <hr></hr>
             </div>
             <div className="project_card_middle">
@@ -73,7 +76,7 @@ function Project() {
             </div>
           </li>
         </ul>
-        <button id="next">NEXT</button>
+        <button id="project_next">NEXT</button>
       </div>
     </div>
   );}

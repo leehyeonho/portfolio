@@ -13,8 +13,11 @@
     <script src="https://kit.fontawesome.com/1a82f71215.js" crossorigin="anonymous"></script>
     <title>leehyeonho.github.io</title>
     <script>
-      var ml = 0;
+      var workMl = 0;
+      var projectMl = 0;
       var workCnt = currentWorkItem($('.work_list').width());
+      var projectCnt = currentWorkItem($('.project_list').width());
+      
       function currentWorkItem(width) {
         if(width > 1250) {
             return 4;
@@ -27,55 +30,120 @@
         }
       }
 
-      function resize(params) {
-        ml = 0;
-        $('.work_list').animate({'margin-left': ml + 'px'}, 0, function() {
+      function resize() {
+        workMl = 0;
+        $('.work_list').animate({'margin-left': workMl + 'px'}, 0, function() {
           workSize = $('.work_list').width();
           workCard = $('.work_card');
           workCnt = currentWorkItem($('.work_list').width());
           for(var i = 0;i<workCard.length;i++) {
             workCard[i].style.minWidth = workSize/workCnt-30 + "px";
           }
-          $('#next').prop("disabled", false);
+          $('#work_next').prop("disabled", false);
         });
+        projectMl = 0;
+        $('.project_list').animate({'margin-left': projectMl + 'px'}, 0, function() {
+          projectSize = $('.project_list').width();
+          projectCard = $('.project_card');
+          projectCnt = currentWorkItem($('.project_list').width());
+          for(var i = 0;i<projectCard.length;i++) {
+            projectCard[i].style.minWidth = projectSize/projectCnt-30 + "px";
+          }
+          $('#project_next').prop("disabled", false);
+        });
+        workLength = $('.work_list').children().length;
+        projectLength = $('.project_list').children().length;
+        if(workCnt > workLength) {
+          $('.work_list').css('justify-content', 'center');
+        } else {
+          $('.work_list').css('justify-content','');
+        }
+        if(projectCnt > projectLength) {
+          $('.project_list').css('justify-content', 'center');
+        } else {
+          $('.project_list').css('justify-content','');
+        }
       }
 
       $(function(){
         resize();
+
         $(window).resize(function() {
           resize();
         });
-        $('#next').click(function() {
+
+        /*
+        work list arrow button        
+        */
+        $('#work_next').click(function() {
           $(this).prop("disabled", true);
           thisUl = $(this).siblings('ul');
           var liCnt = thisUl.children().length - workCnt;
-          width = $('.work_card').width() + 30;
+          if(liCnt <= 0) {
+            return false;
+          }
+          width = thisUl.children().width() + 30;
           
-          if( ml == -(width * liCnt)) {
+          if( workMl == -(width * liCnt)) {
             return false;
           } else {
-            ml -= width;
-            thisUl.animate({'margin-left': ml + 'px'}, 1000, function() {
-              $('#next').prop("disabled", false);
+            workMl -= width;
+            thisUl.animate({'margin-left': workMl + 'px'}, 1000, function() {
+              $('#work_next').prop("disabled", false);
             })
           }
-          $('#prev').prop("disabled", false);
+          $('#work_prev').prop("disabled", false);
+        });
+        $('#work_prev').click(function() {
+          $(this).prop("disabled", true);
+          thisUl = $(this).siblings('ul');
+          width = $('.work_card').width() + 30;
+          if( workMl == 0) {
+            return false;
+          } else {
+            workMl += width;
+            thisUl.animate({'margin-left': workMl + 'px'}, 1000, function() {
+              $('#work_prev').prop("disabled", false);
+            })
+          }
+          $('#work_next').prop("disabled", false);
         });
 
-        $('#prev').click(function() {
+        /*
+        project list arrow button        
+        */
+        $('#project_next').click(function() {
           $(this).prop("disabled", true);
           thisUl = $(this).siblings('ul');
           var liCnt = thisUl.children().length - workCnt;
-          width = $('.work_card').width() + 30;
-          if( ml == 0) {
+          if(liCnt <= 0) {
+            return false;
+          }
+          width = thisUl.children().width() + 30;
+          
+          if( projectMl == -(width * liCnt)) {
             return false;
           } else {
-            ml += width;
-            thisUl.animate({'margin-left': ml + 'px'}, 1000, function() {
-              $('#prev').prop("disabled", false);
+            projectMl -= width;
+            thisUl.animate({'margin-left': projectMl + 'px'}, 1000, function() {
+              $('#project_next').prop("disabled", false);
             })
           }
-          $('#next').prop("disabled", false);
+          $('#project_prev').prop("disabled", false);
+        });
+        $('#project_prev').click(function() {
+          $(this).prop("disabled", true);
+          thisUl = $(this).siblings('ul');
+          width = thisUl.children().width() + 30;
+          if( projectMl == 0) {
+            return false;
+          } else {
+            projectMl += width;
+            thisUl.animate({'margin-left': projectMl + 'px'}, 1000, function() {
+              $('#project_prev').prop("disabled", false);
+            })
+          }
+          $('#project_next').prop("disabled", false);
         });
       });
     </script>

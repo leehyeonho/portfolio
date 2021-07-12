@@ -77,16 +77,18 @@ button{
   z-index: 100;
 }
 
-#prev{
-  top: calc(50% - 50px);
-  left: 0;
+.aroowBtn{
   background: rgba(56, 156, 238, 0.5);
 }
 
-#next{
+#work_prev, #project_prev{
+  top: calc(50% - 50px);
+  left: 0;
+}
+
+#work_next, #project_next{
   top: calc(50% - 50px);
   right: 0;
-  background: rgba(56, 156, 238, 0.5);
 }
 
 .container{

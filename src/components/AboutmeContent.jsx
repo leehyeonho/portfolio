@@ -15,7 +15,7 @@ const sequence = [
     content: 1000, // 100ms delay
   },
   {
-    content: "보다 나은 풀스택 개발자를 목표로 열심히 배우고 노력합니다.",
+    content: "어제보다 나은 오늘을 위해 열심히 배우고 노력합니다.",
     config: {
       disableBlinkingOnEnd: "false"
     },

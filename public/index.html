@@ -7,14 +7,117 @@
     <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <link href="/src/assets/css/common.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/1a82f71215.js" crossorigin="anonymous"></script>
     <title>leehyeonho.github.io</title>
+    <style>
+      /* Common*/
+
+      /* A
+      @media ( max-width: 1023px ) {
+        B
+      }
+      @media ( max-width: 767px ) {
+        C
+      } */
+
+      @font-face {
+        font-family: 'LotteMartDream';
+        font-style: normal;
+        font-weight: 400;
+        src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff') format('woff');
+      }
+      @font-face {
+        font-family: 'LotteMartDream';
+        font-style: normal;
+        font-weight: 700;
+        src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamBold.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamBold.woff') format('woff');
+      }
+      @font-face {
+        font-family: 'LotteMartDream';
+        font-style: normal;
+        font-weight: 300;
+        src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamLight.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamLight.woff') format('woff');
+      }
+      .lottemartdream * {
+      font-family: 'LotteMartDream', sans-serif;
+      }
+
+      html{
+        font-size:10px;
+      }
+
+      body {
+        font-family:'LotteMartDream';
+        background-color: #e0e0e0;
+        width: 100%;
+        padding: 0;
+        margin: 0 auto;
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+      body::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera*/
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      hr{
+        margin-bottom: 20px;
+        border-top: 1px solid #bbb;
+        width: 20%;
+      }
+
+      h1{
+        font-size: 40px;
+      }
+
+      li{
+        list-style: none;
+        text-decoration: none;
+      }
+
+      button{
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border: none;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.8);
+        cursor: pointer;
+        z-index: 100;
+      }
+
+      .aroowBtn{
+        background: rgba(56, 156, 238, 0.5);
+      }
+
+      #work_prev, #project_prev{
+        top: calc(50% - 50px);
+        left: 0;
+      }
+
+      #work_next, #project_next{
+        top: calc(50% - 50px);
+        right: 0;
+      }
+
+      .container{
+        text-align: center;
+        padding-top: 50px;
+        width: 100%;
+        height: calc(100vh - 50px);
+        min-height: 500px;
+      }
+    </style>
     <script>
       var workMl = 0;
       var projectMl = 0;
+      var certMl = 0;
+      var certCardCnt = currentCertItem($('.cert_inner_container').width());
       var workCnt = currentWorkItem($('.work_list').width());
       var projectCnt = currentWorkItem($('.project_list').width());
       
@@ -24,6 +127,18 @@
         } else if (width > 950) {
             return 3;
         } else if (width > 650) {
+            return 2;
+        } else {
+            return 1;
+        }
+      }
+
+      function currentCertItem(width) {
+        if(width > 1451) {
+            return 4;
+        } else if (width > 976) {
+            return 3;
+        } else if (width > 651) {
             return 2;
         } else {
             return 1;
@@ -63,6 +178,29 @@
         } else {
           $('.project_list').css('justify-content','');
         }
+
+        certMl = 0;
+        $('.cert_list').animate({'margin-left': certMl + 'px'}, 0, function() {
+          certSize = $('.cert_inner_container').width();
+          certCard = $('.cert_card');
+          certCardCnt = currentCertItem($('.cert_inner_container').width());
+          for(var i = 0;i<certCard.length;i++) {
+            certCard[i].style.minWidth = certSize/certCardCnt + "px";
+            certCard.eq(i).children('img').css('max-width', certSize/certCardCnt + 'px');
+          }
+          totalCardCnt = $('.cert_card').length;
+          var page_div = '<div class="cert_page"></div>';
+          var page_div_cnt = totalCardCnt/certCardCnt;
+          $('.cert_pages').empty();
+          for (let i = 0; i < page_div_cnt; i++) {
+            $('.cert_pages').append(page_div);
+          }
+          for (let i = 0; i < page_div_cnt; i++) {
+            $('.cert_page')[i].style.minWidth = certSize/certCardCnt/page_div_cnt + "px";
+          }
+          $('.cert_page').first().addClass('now');
+          console.log(certCardCnt);
+        });
       }
 
       $(function(){
@@ -146,6 +284,17 @@
           $('#project_next').prop("disabled", false);
         });
       });
+      $(document).on('click', '.cert_page', function() {
+          if(!$(this).hasClass('now')) {
+            $('.cert_page').removeClass('now');
+            $(this).addClass('now');
+          } else
+            return false;
+          var pageNum = $('.cert_page').index($(this));
+          width = $('.cert_card').width();
+          certMl = - pageNum * width * certCardCnt;
+          $('.cert_list').stop().animate({'margin-left': certMl + 'px'}, 1000, function() {})
+        });
     </script>
   </head>
   <body >

@@ -34,6 +34,7 @@
           certCardCnt = currentWorkItem($('.cert_inner_container').width());
           for(var i = 0;i<certCard.length;i++) {
             certCard[i].style.minWidth = certSize/certCardCnt + "px";
+            certCard.eq(i).children('img').css('max-width', certSize/certCardCnt + 'px');
           }
           totalCardCnt = $('.cert_card').length;
           var page_div = '<div class="cert_page"></div>';

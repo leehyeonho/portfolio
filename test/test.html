@@ -61,21 +61,6 @@
       /*
         cert card list arrow button        
         */
-        $(function() {
-          $('#cert_prev_btn').click(function() {
-            thisUl = $('.cert_list');
-            width = $('.cert_card').width();
-            moveWidth = width * certCardCnt;
-            if( certMl == 0) {
-              return false;
-            } else {
-              certMl += moveWidth;
-              thisUl.animate({'margin-left': certMl + 'px'}, 1000, function() {
-                
-              })
-            }
-          });
-        })
         $(document).on('click', '.cert_page', function() {
           if(!$(this).hasClass('now')) {
             $('.cert_page').removeClass('now');

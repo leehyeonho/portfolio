@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+    <link href="/src/assets/css/common.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/1a82f71215.js" crossorigin="anonymous"></script>
+    <title>leehyeonho.github.io</title>
+    <script>
+      var certMl = 0;
+      var certCardCnt = currentWorkItem($('.cert_card').width());
+      function currentWorkItem(width) {
+        if(width > 1451) {
+            return 4;
+        } else if (width > 976) {
+            return 3;
+        } else if (width > 651) {
+            return 2;
+        } else {
+            return 1;
+        }
+      }
+
+      function resize() {
+        certMl = 0;
+        $('.cert_list').animate({'margin-left': certMl + 'px'}, 0, function() {
+          certSize = $('.cert_inner_container').width();
+          certCard = $('.cert_card');
+          certCardCnt = currentWorkItem($('.cert_inner_container').width());
+          for(var i = 0;i<certCard.length;i++) {
+            certCard[i].style.minWidth = certSize/certCardCnt + "px";
+          }
+          totalCardCnt = $('.cert_card').length;
+          var page_div = '<div class="cert_page"></div>';
+          var page_div_cnt = totalCardCnt/certCardCnt;
+          $('.cert_pages').empty();
+          for (let i = 0; i < page_div_cnt; i++) {
+            $('.cert_pages').append(page_div);
+          }
+          for (let i = 0; i < page_div_cnt; i++) {
+            $('.cert_page')[i].style.minWidth = certSize/certCardCnt/page_div_cnt + "px";
+          }
+          $('.cert_page').first().addClass('now');
+          console.log(certCardCnt);
+        });
+      }
+
+      $(function() {
+        resize();
+
+        $(window).resize(function() {
+          resize();
+        });
+      })
+
+      /*
+        cert card list arrow button        
+        */
+        $(function() {
+          $('#cert_prev_btn').click(function() {
+            thisUl = $('.cert_list');
+            width = $('.cert_card').width();
+            moveWidth = width * certCardCnt;
+            if( certMl == 0) {
+              return false;
+            } else {
+              certMl += moveWidth;
+              thisUl.animate({'margin-left': certMl + 'px'}, 1000, function() {
+                
+              })
+            }
+          });
+        })
+        $(document).on('click', '.cert_page', function() {
+          if(!$(this).hasClass('now')) {
+            $('.cert_page').removeClass('now');
+            $(this).addClass('now');
+          } else
+            return false;
+          var pageNum = $('.cert_page').index($(this));
+          width = $('.cert_card').width();
+          certMl = - pageNum * width * certCardCnt;
+          $('.cert_list').stop().animate({'margin-left': certMl + 'px'}, 1000, function() {})
+        });
+    </script>
+  </head>
+  <style>
+    .container{
+      text-align: center;
+      padding-top: 50px;
+      width: 100%;
+      height: calc(100vh - 50px);
+      min-height: 500px;
+      position: relative;
+    }
+
+    .Certificates_Container h1 {
+      font-size: 40px;
+    }
+
+    .cert_inner_container {
+      width: 80%;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .cert_list {
+      padding-left: 0;
+      list-style: none;
+      width: 2000px;
+      display: flex;
+    }
+    
+    .cert_card {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cert_card>.blur {
+      position: absolute;
+      cursor: pointer;
+      background: rgba(0, 0, 0, 0.6);
+      width: 90%;
+      height: 90%;
+      border-radius: 5%;
+      overflow: hidden;
+    }
+
+    .cert_card>.blur:hover {
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .cert_card>img {
+      width: 90%;
+      height: 90%;
+      border-radius: 5%;
+      overflow: hidden;
+    }
+
+    .cert_pagenation {
+      width: 350px;
+      margin: 0 auto;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .cert_page {
+      cursor: pointer;
+      width: 75px;
+      height: 15px;
+      background: white;
+      font-size: 12px;
+    }
+
+    .cert_pages {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cert_page.now {
+      background: #b1cfeb;;
+    }
+  </style>
+  <body>
+    <noscript>You need to enable JavaScript to run this page.</noscript>
+    <div class="container Certificates_Container" id="Certificates_Container" name="skills_Container">
+      <h1 class="Certificates">Certificates</h1>
+      <hr class="hr_Certificates"></hr>
+      <div class="cert_inner_container">
+        <ul class="cert_list">
+          <li class="cert_card">
+            <div class="blur"></div>
+            <img src="/src/assets/images/Certificates/java-spring-1.jpg" alt=""></img>
+          </li>
+          <li class="cert_card">
+            <div class="blur"></div>
+            <img src="/src/assets/images/Certificates/java-spring-2.jpg" alt=""></img>
+          </li>
+          <li class="cert_card">
+            <div class="blur"></div>
+            <img src="/src/assets/images/Certificates/java-spring-3.jpg" alt=""></img>
+          </li>
+          <li class="cert_card">
+            <div class="blur"></div>
+            <img src="/src/assets/images/Certificates/java-spring-1.jpg" alt=""></img>
+          </li>
+          <li class="cert_card">
+            <div class="blur"></div>
+            <img src="/src/assets/images/Certificates/java-spring-2.jpg" alt=""></img>
+          </li>
+          <li class="cert_card">
+            <div class="blur"></div>
+            <img src="/src/assets/images/Certificates/java-spring-3.jpg" alt=""></img>
+          </li>
+        </ul>
+        
+      </div>
+      <div class="cert_pagenation">
+        <div class="cert_pages">
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

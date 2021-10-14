@@ -65,6 +65,10 @@
       font-size: 1.4rem;
     }
 
+    .skills-item.detail {
+      grid-column: 2 / -1;
+    }
+
     .img_crop {
       min-width: 200px;
       height: 140px;
@@ -112,17 +116,27 @@
   <script>
     $(function() {
       $('.skills-item').click(function() {
-        $('.skills-item').hide('slow', function() {
-          $('#skills-ul').hide('slow');
-        });
-        var detail = '<div>';
-        switch ($(this).attr('id')) {
-          case 'html5-icon':
-            detail += ''
-            break;
-        
-          default:
-            break;
+        if($(this).hasClass('detail')) {
+          $(this).removeClass('detail');
+          var skillsItemIndex = $('.skills-item').index($(this));
+          $('.skills-item').eq(skillsItemIndex).hide('slow', function() {
+            $('.skills-item').show('slow');
+          });
+        } else {
+          $(this).addClass('detail');
+          var skillsItemIndex = $('.skills-item').index($(this));
+          $('.skills-item').hide('slow', function() {
+            $('.skills-item').eq(skillsItemIndex).show('slow');
+          });
+          var detail = '<div>';
+          switch ($(this).attr('id')) {
+            case 'html5-icon':
+              detail += ''
+              break;
+          
+            default:
+              break;
+          }
         }
       })
     })

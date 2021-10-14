@@ -11,192 +11,136 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/1a82f71215.js" crossorigin="anonymous"></script>
     <title>leehyeonho.github.io</title>
-    <script>
-      var certMl = 0;
-      var certCardCnt = currentWorkItem($('.cert_card').width());
-      function currentWorkItem(width) {
-        if(width > 1451) {
-            return 4;
-        } else if (width > 976) {
-            return 3;
-        } else if (width > 651) {
-            return 2;
-        } else {
-            return 1;
-        }
-      }
-
-      function resize() {
-        certMl = 0;
-        $('.cert_list').animate({'margin-left': certMl + 'px'}, 0, function() {
-          certSize = $('.cert_inner_container').width();
-          certCard = $('.cert_card');
-          certCardCnt = currentWorkItem($('.cert_inner_container').width());
-          for(var i = 0;i<certCard.length;i++) {
-            certCard[i].style.minWidth = certSize/certCardCnt + "px";
-            certCard.eq(i).children('img').css('max-width', certSize/certCardCnt + 'px');
-          }
-          totalCardCnt = $('.cert_card').length;
-          var page_div = '<div class="cert_page"></div>';
-          var page_div_cnt = totalCardCnt/certCardCnt;
-          $('.cert_pages').empty();
-          for (let i = 0; i < page_div_cnt; i++) {
-            $('.cert_pages').append(page_div);
-          }
-          for (let i = 0; i < page_div_cnt; i++) {
-            $('.cert_page')[i].style.minWidth = certSize/certCardCnt/page_div_cnt + "px";
-          }
-          $('.cert_page').first().addClass('now');
-          console.log(certCardCnt);
-        });
-      }
-
-      $(function() {
-        resize();
-
-        $(window).resize(function() {
-          resize();
-        });
-      })
-
-      /*
-        cert card list arrow button        
-        */
-        $(document).on('click', '.cert_page', function() {
-          if(!$(this).hasClass('now')) {
-            $('.cert_page').removeClass('now');
-            $(this).addClass('now');
-          } else
-            return false;
-          var pageNum = $('.cert_page').index($(this));
-          width = $('.cert_card').width();
-          certMl = - pageNum * width * certCardCnt;
-          $('.cert_list').stop().animate({'margin-left': certMl + 'px'}, 1000, function() {})
-        });
-    </script>
   </head>
   <style>
-    .container{
-      text-align: center;
-      padding-top: 50px;
-      width: 100%;
-      height: calc(100vh - 50px);
-      min-height: 500px;
-      position: relative;
+    @media screen and (min-width:1000px) {
+      .container.skills_Container{
+        text-align: center;
+        padding-top: 50px;
+        width: 1000px;
+        min-height: 1000px;
+        margin: 0 auto;
+      }
     }
 
-    .Certificates_Container h1 {
+    @media screen and (max-width:600px) {
+      .container.skills_Container{
+        text-align: center;
+        padding-top: 50px;
+        width: 100%;
+        min-height: 1000px;
+      }
+    }
+
+    .skills_Container h1 {
       font-size: 40px;
     }
 
-    .cert_inner_container {
-      width: 80%;
-      margin: 0 auto;
-      overflow: hidden;
-    }
-
-    .cert_list {
+    .skills_Container ul {
       padding-left: 0;
       list-style: none;
-      width: 2000px;
+      font-size: 3rem;
+      margin-bottom: 0px;
+      margin-top: 0px;
+      text-align: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-auto-rows: 140px;
+    }
+
+    .skills-item {
+      cursor: pointer;
+    }
+
+    .skills_Container ul li i {
+      color: #868e96;
+    }
+
+    .skills_Container ul li i:hover {
+      color: #645beb;
+    }
+
+    .skills_Container ul li p {
+      color: #868e96;
+      font-size: 1.4rem;
+    }
+
+    .img_crop {
+      min-width: 200px;
+      height: 140px;
       display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .img_crop>img {
+      filter: grayscale(100%);
+      opacity: 0.6;
+      max-width: 100px;
+      max-height: 90px;
+      display: block;
+      max-width: initial;
+    }
+
+    .img_crop img:hover {
+      filter: grayscale(0%);
+      opacity: 0.8;
+    }
+
+    .nomad_container {
+      perspective: 2000px;
+      width: 100%;
+      height: 400px;
+      background-color: black;
     }
     
-    .cert_card {
-      position: relative;
+    .nomad_container .ring {
       display: flex;
-      justify-content: center;
-      align-items: center;
     }
 
-    .cert_card>.blur {
-      position: absolute;
-      cursor: pointer;
-      background: rgba(0, 0, 0, 0.6);
-      width: 90%;
-      height: 90%;
-      border-radius: 5%;
-      overflow: hidden;
-      color: whitesmoke;
-    }
-
-    .cert_card>.blur:hover {
-      background: rgba(0, 0, 0, 0.4);
-    }
-
-    .cert_card>img {
-      width: 90%;
-      height: 90%;
-      border-radius: 5%;
-      overflow: hidden;
-    }
-
-    .cert_pagenation {
-      width: 350px;
-      margin: 0 auto;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    
-    .cert_page {
-      cursor: pointer;
-      width: 75px;
-      height: 15px;
-      background: white;
-      font-size: 12px;
-    }
-
-    .cert_pages {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .cert_page.now {
-      background: #b1cfeb;;
+    .nomad_container .ring .img {
+      width: 100px;
+      height: 100px;
+      transform-style: preserve-3d;
+      user-select:none;
+      background-image: url("../images/nomad0.png");
+      background-size: cover;
+      border: 1px solid red;
     }
   </style>
+  <script>
+    $(function() {
+      $('.skills-item').click(function() {
+        $('.skills-item').hide('slow', function() {
+          $('#skills-ul').hide('slow');
+        });
+        var detail = '<div>';
+        switch ($(this).attr('id')) {
+          case 'html5-icon':
+            detail += ''
+            break;
+        
+          default:
+            break;
+        }
+      })
+    })
+    
+  </script>
   <body>
     <noscript>You need to enable JavaScript to run this page.</noscript>
-    <div class="container Certificates_Container" id="Certificates_Container" name="skills_Container">
-      <h1 class="Certificates">Certificates</h1>
-      <hr class="hr_Certificates"></hr>
-      <div class="cert_inner_container">
-        <ul class="cert_list">
-          <li class="cert_card">
-            <div class="blur">디지털컨버전스 자바기반 응용SW엔지니어링 양성훈련과정</div>
-            <img src="/src/assets/images/Certificates/java-spring-1.jpg" alt=""></img>
-          </li>
-          <li class="cert_card">
-            <div class="blur"></div>
-            <img src="/src/assets/images/Certificates/css-layout.jpg" alt=""></img>
-          </li>
-          <li class="cert_card">
-            <div class="blur"></div>
-            <img src="/src/assets/images/Certificates/java-spring-3.jpg" alt=""></img>
-          </li>
-          <li class="cert_card">
-            <div class="blur"></div>
-            <img src="/src/assets/images/Certificates/java-spring-1.jpg" alt=""></img>
-          </li>
-          <li class="cert_card">
-            <div class="blur"></div>
-            <img src="/src/assets/images/Certificates/java-spring-2.jpg" alt=""></img>
-          </li>
-          <li class="cert_card">
-            <div class="blur"></div>
-            <img src="/src/assets/images/Certificates/java-spring-3.jpg" alt=""></img>
-          </li>
-        </ul>
-        
-      </div>
-      <div class="cert_pagenation">
-        <div class="cert_pages">
-
-        </div>
-      </div>
+    <div class="container skills_Container" id="skills_Container" name="skills_Container">
+      <h1 class="skills">Skills</h1>
+      <hr class="hr_skills"></hr>
+      <ul id="skills-ul">
+        <li class="skills-item" id="html5-icon"><i class="fa fa-html5 fa-3x" ></i><p>HTML5</p></li>
+        <li class="skills-item" id="css-icon"><i class="fab fa-css3-alt fa-3x" ></i><p>CSS3</p></li>
+        <li class="skills-item" id="js-icon"><i class="fab fa-js fa-3x" ></i><p>JS</p></li>
+        <li class="skills-item" id="reactjs-icon"><i class="fab fa-react fa-3x" ></i><p>REACTJS</p></li>
+        <li class="skills-item" id="nodejs-icon"><i class="fab fa-node fa-3x" ></i><p>NODEJS</p></li>
+        <li class="skills-item" id="java-icon"><i class="fab fa-java fa-3x" ></i><p>JAVA</p></li>
+      </ul>
     </div>
   </body>
 </html>

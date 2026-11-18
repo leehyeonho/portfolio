@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import App from './App';
 import { WORKS } from './data/work';
 import { PROJECTS } from './data/projects';
@@ -17,6 +17,7 @@ describe('App', () => {
       'Work Experiences',
       'Personal Project',
       'Certificates',
+      'Contact',
     ]);
   });
 
@@ -28,16 +29,17 @@ describe('App', () => {
   });
 
   it('데이터 파일의 내용을 모두 렌더링한다', () => {
-    render(<App />);
+    const { container } = render(<App />);
     WORKS.forEach(({ title }) => expect(screen.getByText(title)).toBeInTheDocument());
     PROJECTS.forEach(({ title }) => expect(screen.getByText(title)).toBeInTheDocument());
-    SKILLS.forEach(({ name }) => expect(screen.getByText(name)).toBeInTheDocument());
+    const skills = within(container.querySelector('#skills_Container'));
+    SKILLS.forEach(({ name }) => expect(skills.getByText(name)).toBeInTheDocument());
     CERTIFICATES.forEach(({ title }) => expect(screen.getByAltText(title)).toBeInTheDocument());
   });
 
   it('외부 링크는 새 창에서 안전하게 연다', () => {
     const { container } = render(<App />);
-    const links = container.querySelectorAll('.work_url a, .project_url a');
+    const links = container.querySelectorAll('.card_link');
     expect(links.length).toBeGreaterThan(0);
     links.forEach((link) => {
       expect(link).toHaveAttribute('target', '_blank');

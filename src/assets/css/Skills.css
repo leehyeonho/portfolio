@@ -1,91 +1,74 @@
-@media screen and (min-width:1000px) {
-  .container.skills_Container{
-    text-align: center;
-    padding-top: 50px;
-    width: 1000px;
-    min-height: 1000px;
-    margin: 0 auto;
-  }
+.skills_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0;
 }
 
-@media screen and (max-width:600px) {
-  .container.skills_Container{
-    text-align: center;
-    padding-top: 50px;
-    width: 100%;
-    min-height: 1000px;
-  }
+.skill {
+  box-sizing: border-box;
+  width: 150px;
+  padding: 20px 8px 16px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s;
 }
 
-.skills_Container h2 {
-  font-size: 40px;
+.skill:hover {
+  transform: translateY(-4px);
 }
 
-.skills_Container ul {
-  padding-left: 0;
-  list-style: none;
-  font-size: 3rem;
-  margin-bottom: 0px;
-  margin-top: 0px;
-  text-align: center;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-auto-rows: 140px;
+/* 아이콘 종류(폰트 아이콘/이미지)와 비율에 상관없이 같은 크기의 박스에 맞춘다 */
+.skill_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  color: var(--muted);
+  font-size: 6rem;
+  transition: color 0.2s;
 }
 
-.skills_Container ul li .icon {
-  color: #5c636a;
+.skill:hover .skill_icon {
+  color: var(--accent);
 }
 
-.skills_Container ul li .icon:hover {
-  color: #645beb;
+.skill_icon img {
+  max-width: 80px;
+  max-height: 64px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: filter 0.2s, opacity 0.2s;
 }
 
-.skills_Container ul li p {
-  color: #5c636a;
+.skill:hover .skill_icon img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.skill p {
+  margin: 12px 0 0;
+  color: var(--muted);
   font-size: 1.4rem;
 }
 
-.img_crop {
-  min-width: 200px;
-  height: 140px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+@media (prefers-reduced-motion: reduce) {
+  .skill {
+    transition: none;
+  }
+
+  .skill:hover {
+    transform: none;
+  }
 }
 
-.img_crop>img {
-  filter: grayscale(100%);
-  opacity: 0.6;
-  max-width: 100px;
-  max-height: 90px;
-  display: block;
-  max-width: initial;
-}
-
-.img_crop img:hover {
-  filter: grayscale(0%);
-  opacity: 0.8;
-}
-
-.nomad_container {
-  perspective: 2000px;
-  width: 100%;
-  height: 400px;
-  background-color: black;
-}
-
-.nomad_container .ring {
-  display: flex;
-}
-
-.nomad_container .ring .img {
-  width: 100px;
-  height: 100px;
-  transform-style: preserve-3d;
-  user-select:none;
-  background-image: url("../images/nomad0.png");
-  background-size: cover;
-  border: 1px solid red;
+@media (max-width: 400px) {
+  .skill {
+    width: calc(50% - 8px);
+  }
 }

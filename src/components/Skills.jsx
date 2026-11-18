@@ -7,21 +7,14 @@ function Skills() {
   return (
     <section className="container skills_Container" id="skills_Container">
       <h2 className="skills">Skills</h2>
-      <hr className="hr_skills"></hr>
-      <ul>
+      <hr></hr>
+      <ul className="skills_list">
         {SKILLS.map(({ name, icon, image }) => (
-          <li key={name}>
-            {icon ? (
-              <>
-                <Icon icon={icon} className="icon-3x" />
-                <p>{name}</p>
-              </>
-            ) : (
-              <div className="img_crop">
-                <img src={image} alt=""></img>
-                <p>{name}</p>
-              </div>
-            )}
+          <li className="skill" key={name}>
+            <div className="skill_icon">
+              {icon ? <Icon icon={icon} /> : <img src={image} alt="" loading="lazy"></img>}
+            </div>
+            <p>{name}</p>
           </li>
         ))}
       </ul>

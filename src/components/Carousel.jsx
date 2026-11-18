@@ -1,5 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import Icon from './Icon';
 import '../assets/css/Carousel.css';
+
+const SWIPE_THRESHOLD = 40; // 스와이프로 인정하는 최소 이동 거리(px)
 
 /**
  * 반응형 캐러셀
@@ -22,6 +26,7 @@ function Carousel({
   const viewportRef = useRef(null);
   const [width, setWidth] = useState(0);
   const [position, setPosition] = useState(0);
+  const touchStart = useRef(null);
 
   useEffect(() => {
     const el = viewportRef.current;
@@ -48,6 +53,22 @@ function Carousel({
 
   const move = (next) => setPosition(Math.max(0, Math.min(next, lastPosition)));
 
+  // 터치 스와이프: 가로로 충분히 움직였을 때만 이동한다 (세로 스크롤과 구분)
+  const handleTouchStart = (e) => {
+    const touch = e.touches[0];
+    touchStart.current = { x: touch.clientX, y: touch.clientY };
+  };
+  const handleTouchEnd = (e) => {
+    const start = touchStart.current;
+    touchStart.current = null;
+    if (!start || !canScroll) return;
+    const touch = e.changedTouches[0];
+    const dx = touch.clientX - start.x;
+    const dy = touch.clientY - start.y;
+    if (Math.abs(dx) < SWIPE_THRESHOLD || Math.abs(dx) < Math.abs(dy)) return;
+    move(current + (dx < 0 ? 1 : -1));
+  };
+
   return (
     <div className={className}>
       {controls === 'arrows' && canScroll && (
@@ -58,10 +79,15 @@ function Carousel({
           disabled={current === 0}
           onClick={() => move(current - 1)}
         >
-          PREV
+          <Icon icon={faChevronLeft} />
         </button>
       )}
-      <div className="carousel_viewport" ref={viewportRef}>
+      <div
+        className="carousel_viewport"
+        ref={viewportRef}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
         <ul
           className={listClassName}
           style={{ transform: `translateX(${-index * slot}px)` }}
@@ -85,7 +111,7 @@ function Carousel({
           disabled={current === lastPosition}
           onClick={() => move(current + 1)}
         >
-          NEXT
+          <Icon icon={faChevronRight} />
         </button>
       )}
       {controls === 'pages' && canScroll && (

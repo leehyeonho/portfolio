@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   right: 0;
-  background-color: #e0e0e0;
+  background-color: var(--bg);
   width: 100%;
   font-size: 1.6rem;
   box-shadow: 0px 4px 4px -4px gray;
@@ -10,37 +10,55 @@
 }
 
 .big-size-menu, .small-size-menu {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	display: flex;
-	justify-content: flex-end;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
 }
 
-.big-size-menu li a , .small-size-menu li a{
-	display: block;
-	color: #000000;
-	padding: 15px;
-	text-align: center;
-	font-weight: bold;
-	cursor: pointer;
+.big-size-menu li a, .small-size-menu li a {
+  display: block;
+  box-sizing: border-box;
+  min-width: 44px;
+  height: var(--header-height);
+  padding: 0 15px;
+  line-height: var(--header-height);
+  color: var(--text);
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .big-size-menu li a:hover, .small-size-menu li a:hover {
-	background-color: #666;
-	color: white;
+  background-color: #666;
+  color: white;
 }
 
-.small-size-menu{
-	display: none;
+/* 현재 보고 있는 섹션 표시 (react-scroll이 active 클래스를 붙인다) */
+.big-size-menu li a.active, .small-size-menu li a.active {
+  color: var(--accent);
+  box-shadow: inset 0 -3px 0 var(--accent);
+}
+
+.big-size-menu li a.active:hover, .small-size-menu li a.active:hover {
+  color: white;
+}
+
+.small-size-menu {
+  display: none;
 }
 
 @media only screen and (max-device-width: 480px), (max-width: 600px) {
-	.big-size-menu{
-		display: none;
-	}
-	.small-size-menu{
-		display: flex;
-	}
+  .big-size-menu {
+    display: none;
+  }
+  .small-size-menu {
+    display: flex;
+    justify-content: space-around;
+  }
+  .small-size-menu li {
+    flex: 1;
+  }
 }

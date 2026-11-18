@@ -1,0 +1,57 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 64px 20px 32px;
+  background: #2b2f36;
+  color: #fff;
+  text-align: center;
+}
+
+.footer_title {
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+}
+
+.footer_message {
+  margin: 0 0 8px;
+  color: #c9ced6;
+  font-size: 1.6rem;
+}
+
+.footer_links {
+  justify-content: center;
+}
+
+/* 어두운 배경에서는 버튼 색을 반전한다 */
+.footer .contact_link {
+  border-color: #fff;
+  color: #fff;
+}
+
+.footer .contact_link:hover,
+.footer .contact_link:focus-visible {
+  background: #fff;
+  color: var(--text);
+}
+
+.footer .contact_link.primary {
+  background: #fff;
+  color: var(--text);
+}
+
+.footer .contact_link.primary:hover,
+.footer .contact_link.primary:focus-visible {
+  background: var(--accent-soft);
+  border-color: var(--accent-soft);
+}
+
+.footer :focus-visible {
+  outline-color: #fff;
+}
+
+.footer_copy {
+  margin-top: 32px;
+  color: #9aa1ab;
+  font-size: 1.3rem;
+}

@@ -40,6 +40,12 @@ npm run preview   # 빌드 결과 미리보기
 배열에 객체를 추가하면 카드가 자동으로 늘어납니다.
 자격증 이미지는 가로 800px 정도의 WebP로 `src/assets/images/Certificates/`에 추가하세요.
 
+## 폰트
+
+본문 폰트는 롯데마트 드림체이며, 용량을 줄이기 위해 ASCII와 KS X 1001 한글 2,350자만 남긴
+서브셋을 `src/assets/fonts/`에 두고 직접 제공합니다. 서브셋에 없는 희귀한 글자는 폴백 폰트로 표시됩니다.
+서브셋은 [`scripts/subset-fonts.py`](scripts/subset-fonts.py)로 다시 만들 수 있습니다.
+
 ## 구조
 
 ```

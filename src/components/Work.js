@@ -14,7 +14,7 @@ function Work() {
           <li className="work_card">
             <div className="work_card_top">
               <div className="work_title">연구실 홈페이지 제작 및 유지보수</div>
-              <div className="work_url"><a href="http://genesys.chungbuk.ac.kr">http://genesys.chungbuk.ac.kr</a></div>
+              <div className="work_url"><a href="http://genesys.chungbuk.ac.kr" target="_blank" rel="noopener noreferrer">http://genesys.chungbuk.ac.kr</a></div>
               <hr></hr>
             </div>
             <div className="work_card_middle">
@@ -52,7 +52,7 @@ function Work() {
             <div className="work_card_bottom">
             <hr></hr>
               <div className="work_company">커스텀랩(customlab)</div>
-              <div className="date">2020.08.25~2012.02.01</div>
+              <div className="date">2020.08.25~2021.02.01</div>
             </div>
           </li>
         </ul>

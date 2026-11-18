@@ -35,7 +35,7 @@ class Skills extends Component {
               </li>
               <li>
                 <div className="img_crop">
-                  <img src={mysql_icon} alt=""></img><p>python</p>
+                  <img src={mysql_icon} alt=""></img><p>mysql</p>
                 </div>
               </li>
               <li></li>

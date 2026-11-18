@@ -30,6 +30,12 @@ class Header extends Component {
                     Project
                   </Link>
                 </li>
+                <li>
+                  <Link activeClass="active" to="Certificates_Container"
+                  spy={true} smooth={true} duration={600}>
+                    Certificates
+                  </Link>
+                </li>
               </ul>
               <ul className="small-size-menu">
                 <li>
@@ -54,6 +60,12 @@ class Header extends Component {
                   <Link activeClass="active" to="project_Container"
                   spy={true} smooth={true} duration={600}>
                     <i className="fas fa-chalkboard-teacher"></i>
+                  </Link>
+                </li>
+                <li>
+                  <Link activeClass="active" to="Certificates_Container"
+                  spy={true} smooth={true} duration={600}>
+                    <i className="fas fa-certificate"></i>
                   </Link>
                 </li>
               </ul>

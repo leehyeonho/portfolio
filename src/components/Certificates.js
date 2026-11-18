@@ -10,7 +10,7 @@ import vanillaJS from '../assets/images/Certificates/vanillaJS.jpg';
 class Certificates extends Component {
     render() {
         return (
-          <div className="container Certificates_Container" id="Certificates_Container" name="skills_Container">
+          <div className="container Certificates_Container" id="Certificates_Container">
             <h1 className="Certificates">Certificates</h1>
             <hr className="hr_Certificates"></hr>
             <div className="cert_inner_container">

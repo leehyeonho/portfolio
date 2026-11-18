@@ -57,18 +57,18 @@ h4{
   align-items: center;
 }
 
-.sns_tag i {
+.sns_tag a {
   color: white;
   border-radius: 5vw;
   cursor: pointer;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-size: 25px;
   width: 50px;
   height: 50px;
-  line-height: 25px;
   margin: 0 5px;
   position: relative;
-  text-align: center;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -77,8 +77,8 @@ h4{
 }
 
 /* Hover Transition */
-.google i:hover,
-.github i:hover {
+.google:hover,
+.github:hover {
   background-color: black;
 }
 

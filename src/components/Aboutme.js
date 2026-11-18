@@ -1,6 +1,8 @@
 import React from 'react';
 import '../assets/css/aboutme.css';
 import AboutmeContent from './AboutmeContent';
+import Icon from './Icon';
+import { faGithub, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { PROFILE } from '../data/profile';
 
 function Aboutme() {
@@ -22,8 +24,8 @@ function Aboutme() {
           </div>
           <div className="contact_me">
             <div className="sns_tag">
-              <a className="github" href={PROFILE.github} aria-label="GitHub"><i className="fa fa-github fa-5x" ></i></a>
-              <a className="google" href={`mailto:${PROFILE.email}`} aria-label="Email"><i className="fa fa-google fa-3x" ></i></a>
+              <a className="github" href={PROFILE.github} aria-label="GitHub"><Icon icon={faGithub} /></a>
+              <a className="google" href={`mailto:${PROFILE.email}`} aria-label="Email"><Icon icon={faGoogle} /></a>
             </div>
           </div>
         </div>

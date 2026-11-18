@@ -1,15 +1,17 @@
 import React from 'react';
 import { Link } from 'react-scroll';
 import { NAV_ITEMS } from '../data/profile';
+import Icon from './Icon';
 import '../assets/css/header.css';
 
-function NavList({ className, renderLabel }) {
+function NavList({ className, iconOnly }) {
   return (
     <ul className={className}>
       {NAV_ITEMS.map((item) => (
         <li key={item.to}>
-          <Link activeClass="active" to={item.to} spy={true} smooth={true} duration={600}>
-            {renderLabel(item)}
+          <Link activeClass="active" to={item.to} spy={true} smooth={true} duration={600}
+            aria-label={iconOnly ? item.label : undefined}>
+            {iconOnly ? <Icon icon={item.icon} /> : item.label}
           </Link>
         </li>
       ))}
@@ -21,11 +23,8 @@ function Header() {
   return (
     <header>
       <nav className="menu">
-        <NavList className="big-size-menu" renderLabel={(item) => item.label} />
-        <NavList
-          className="small-size-menu"
-          renderLabel={(item) => <i className={item.icon} aria-label={item.label}></i>}
-        />
+        <NavList className="big-size-menu" />
+        <NavList className="small-size-menu" iconOnly />
       </nav>
     </header>
   );

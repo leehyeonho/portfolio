@@ -33,11 +33,11 @@
   grid-auto-rows: 140px;
 }
 
-.skills_Container ul li i {
+.skills_Container ul li .icon {
   color: #868e96;
 }
 
-.skills_Container ul li i:hover {
+.skills_Container ul li .icon:hover {
   color: #645beb;
 }
 

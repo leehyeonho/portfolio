@@ -1,5 +1,6 @@
 import React from 'react';
 import '../assets/css/Skills.css';
+import Icon from './Icon';
 import { SKILLS } from '../data/skills';
 
 function Skills() {
@@ -12,7 +13,7 @@ function Skills() {
           <li key={name}>
             {icon ? (
               <>
-                <i className={`${icon} fa-3x`}></i>
+                <Icon icon={icon} className="icon-3x" />
                 <p>{name}</p>
               </>
             ) : (

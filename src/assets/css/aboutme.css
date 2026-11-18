@@ -47,10 +47,6 @@
   align-items: center;
   justify-content: center;
 }
-h4{
-  margin: 10px;
-}
-
 .contact_me {
   display: flex;
   justify-content: flex-end;

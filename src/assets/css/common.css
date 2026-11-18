@@ -1,13 +1,3 @@
-/* Common*/
-
-/* A
-@media ( max-width: 1023px ) {
-  B
-}
-@media ( max-width: 767px ) {
-  C
-} */
-
 /* 롯데마트 드림체 서브셋 (ASCII + KS X 1001 한글). 생성: scripts/subset-fonts.py */
 @font-face {
   font-family: 'LotteMartDream';
@@ -23,17 +13,31 @@
   font-display: swap;
   src: url('../fonts/LotteMartDream-Bold.subset.woff2') format('woff2');
 }
-.lottemartdream * {
- font-family: 'LotteMartDream', sans-serif;
+
+:root {
+  --bg: #e0e0e0;
+  --bg-alt: #d4d7dc;
+  --surface: #fff;
+  --text: #222;
+  --muted: #4a4f55;
+  --accent: #2f5d8c;
+  --accent-soft: #e4ecf5;
+  --header-height: 50px;
+  --radius: 16px;
+  --shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.35);
 }
 
-html{
-  font-size:10px;
+html {
+  font-size: 10px;
 }
 
 body {
-  font-family:'LotteMartDream', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
-  background-color: #e0e0e0;
+  font-family: 'LotteMartDream', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  /* 한글을 단어(어절) 단위로 줄바꿈하고, 너무 긴 문자열만 강제로 끊는다 */
+  word-break: keep-all;
+  overflow-wrap: break-word;
   width: 100%;
   padding: 0;
   margin: 0 auto;
@@ -48,18 +52,25 @@ a {
   text-decoration: none;
 }
 
-hr{
-  margin-bottom: 20px;
-  border-top: 1px solid #bbb;
-  width: 20%;
+li {
+  list-style: none;
+  text-decoration: none;
 }
 
-h1, h2{
-  font-size: 40px;
-  margin: 0.67em 0;
+h1, h2 {
+  font-size: clamp(2.8rem, 5vw, 4rem);
+  margin: 0;
 }
 
-.sr-only{
+/* 섹션 제목 아래 구분선 */
+hr {
+  width: 60px;
+  margin: 12px auto 40px;
+  border: 0;
+  border-top: 3px solid var(--accent);
+}
+
+.sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -71,15 +82,26 @@ h1, h2{
   border: 0;
 }
 
-li{
-  list-style: none;
-  text-decoration: none;
+/* 섹션: 내용 높이에 맞추고, 번갈아 배경색을 달리해 구분한다 */
+.container {
+  text-align: center;
+  padding: 80px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
 }
 
-.container{
-  text-align: center;
-  padding-top: 50px;
-  width: 100%;
-  height: calc(100vh - 50px);
-  min-height: 500px;
+main > section:nth-of-type(even) {
+  background-color: var(--bg-alt);
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 64px 16px;
+  }
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
 }

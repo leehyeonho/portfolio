@@ -78,6 +78,37 @@ describe('Carousel', () => {
     });
   });
 
+  describe('swipe', () => {
+    const swipe = (element, from, to) => {
+      fireEvent.touchStart(element, { touches: [{ clientX: from[0], clientY: from[1] }] });
+      fireEvent.touchEnd(element, { changedTouches: [{ clientX: to[0], clientY: to[1] }] });
+    };
+    const viewport = (container) => container.querySelector('.carousel_viewport');
+
+    it('왼쪽으로 스와이프하면 다음 카드로, 오른쪽이면 이전 카드로 이동한다', () => {
+      const { container } = renderCarousel(5);
+      swipe(viewport(container), [300, 100], [100, 105]);
+      expect(offset(container)).toBeCloseTo(-1000 / 3);
+      swipe(viewport(container), [100, 100], [300, 100]);
+      expect(offset(container)).toBeCloseTo(0);
+    });
+
+    it('이동 거리가 짧거나 세로 스크롤에 가까우면 무시한다', () => {
+      const { container } = renderCarousel(5);
+      swipe(viewport(container), [300, 100], [280, 100]); // 20px: 너무 짧음
+      swipe(viewport(container), [300, 100], [200, 400]); // 세로 이동이 더 큼
+      expect(offset(container)).toBeCloseTo(0);
+    });
+
+    it('끝에서는 더 이동하지 않는다', () => {
+      const { container } = renderCarousel(5);
+      for (let i = 0; i < 5; i += 1) swipe(viewport(container), [300, 100], [100, 100]);
+      expect(offset(container)).toBeCloseTo(-2000 / 3);
+      swipe(viewport(container), [100, 100], [300, 100]);
+      expect(offset(container)).toBeCloseTo(-1000 / 3);
+    });
+  });
+
   describe('pages', () => {
     const pageProps = { step: 'page', controls: 'pages', breakpoints: [[650, 2]], gap: 0 };
 

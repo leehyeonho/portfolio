@@ -9,6 +9,7 @@ https://leehyeonho.github.io/portfolio/
 - [react-scroll](https://github.com/fisshy/react-scroll) (내비게이션 스크롤)
 - Font Awesome 아이콘 (SVG, 사용하는 아이콘만 번들)
 - 테스트: [Vitest](https://vitest.dev/), Testing Library
+- 린트: ESLint 9 (react, react-hooks)
 
 ## 시작하기
 
@@ -17,6 +18,7 @@ Node.js `^20.19.0` 또는 `>=22.12.0`이 필요합니다.
 ```bash
 npm install
 npm run dev       # 개발 서버 (http://localhost:5173/portfolio/)
+npm run lint      # ESLint
 npm test          # 테스트 1회 실행
 npm run test:watch
 npm run build     # dist/ 에 프로덕션 빌드
@@ -51,7 +53,7 @@ src/
 ## 배포
 
 `master` 브랜치에 push하면 GitHub Actions([deploy.yml](.github/workflows/deploy.yml))가
-테스트와 빌드를 실행한 뒤 `dist/`를 `gh-pages` 브랜치에 배포합니다.
-Pull Request에서는 테스트와 빌드만 실행하고 배포하지 않습니다.
+린트, 테스트, 빌드를 실행한 뒤 `dist/`를 `gh-pages` 브랜치에 배포합니다.
+Pull Request에서는 린트, 테스트, 빌드만 실행하고 배포하지 않습니다.
 
 > GitHub 저장소 설정의 **Pages → Source**가 `Deploy from a branch`, 브랜치 `gh-pages`(/root)로 되어 있어야 합니다.

@@ -3,7 +3,7 @@
   flex-direction: column;
 }
 
-.work_Container h1 {
+.work_Container h2 {
   font-size: 40px;
 }
 
@@ -19,10 +19,7 @@
 
 .work_list{
   display: flex;
-  width: 3000px;
-  overflow: hidden;
   perspective: 1500px;
-  padding: 0;
 }
 .work_list.hidden{
   display: none;

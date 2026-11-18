@@ -17,7 +17,7 @@
   }
 }
 
-.skills_Container h1 {
+.skills_Container h2 {
   font-size: 40px;
 }
 
@@ -33,16 +33,16 @@
   grid-auto-rows: 140px;
 }
 
-.skills_Container ul li i {
-  color: #868e96;
+.skills_Container ul li .icon {
+  color: #5c636a;
 }
 
-.skills_Container ul li i:hover {
+.skills_Container ul li .icon:hover {
   color: #645beb;
 }
 
 .skills_Container ul li p {
-  color: #868e96;
+  color: #5c636a;
   font-size: 1.4rem;
 }
 

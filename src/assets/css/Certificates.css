@@ -7,21 +7,13 @@
     position: relative;
   }
 
-  .Certificates_Container h1 {
+  .Certificates_Container h2 {
     font-size: 40px;
   }
 
   .cert_inner_container {
     width: 80%;
     margin: 0 auto;
-    overflow: hidden;
-  }
-
-  .cert_list {
-    padding-left: 0;
-    list-style: none;
-    width: 2000px;
-    display: flex;
   }
   
   .cert_card {
@@ -52,31 +44,4 @@
     max-width: 90%;
     height: 90%;
     display: block;
-  }
-
-  .cert_pagenation {
-    width: 350px;
-    margin: 0 auto;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .cert_page {
-    cursor: pointer;
-    width: 75px;
-    height: 15px;
-    background: white;
-    font-size: 12px;
-  }
-
-  .cert_pages {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .cert_page.now {
-    background: #b1cfeb;;
   }

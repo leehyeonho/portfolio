@@ -1,0 +1,44 @@
+.typing_text {
+  margin: 10px;
+  font-size: 1em;
+  line-height: 1.6;
+  font-weight: bold;
+}
+
+.typing_content {
+  white-space: pre-wrap;
+}
+
+.typing_cursor {
+  display: inline-block;
+  width: 0.15em;
+  height: 1em;
+  margin-left: 0.15em;
+  vertical-align: text-bottom;
+  background: black;
+  animation: typing_blink 1.06s step-end infinite;
+}
+
+/* 타이핑이 끝나면 정해진 횟수만 깜빡인 뒤 사라진다 */
+.typing_cursor.done {
+  animation-fill-mode: forwards;
+  animation-name: typing_blink_out;
+}
+
+@keyframes typing_blink {
+  50% {
+    background: transparent;
+  }
+}
+
+@keyframes typing_blink_out {
+  0% {
+    background: black;
+  }
+  50% {
+    background: transparent;
+  }
+  100% {
+    background: transparent;
+  }
+}

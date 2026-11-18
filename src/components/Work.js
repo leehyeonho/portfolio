@@ -1,6 +1,7 @@
 import React from 'react';
 import Carousel from './Carousel';
 import { CARD_BREAKPOINTS } from './breakpoints';
+import { WORKS } from '../data/work';
 import '../assets/css/Work.css';
 
 function Work() {
@@ -12,52 +13,31 @@ function Work() {
       </div>
       <Carousel className="inner_container" listClassName="work_list" itemClassName="work_card"
         breakpoints={CARD_BREAKPOINTS} gap={30}>
-          <>
+        {WORKS.map((work) => (
+          <React.Fragment key={work.title}>
             <div className="work_card_top">
-              <div className="work_title">연구실 홈페이지 제작 및 유지보수</div>
-              <div className="work_url"><a href="http://genesys.chungbuk.ac.kr" target="_blank" rel="noopener noreferrer">http://genesys.chungbuk.ac.kr</a></div>
+              <div className="work_title">{work.title}</div>
+              <div className="work_url">
+                <a href={work.url} target="_blank" rel="noopener noreferrer">{work.urlLabel}</a>
+              </div>
               <hr></hr>
             </div>
             <div className="work_card_middle">
-              <div className="used">#nodejs</div>
-              <div className="used">#centos7</div>
-              <div className="used">#mariadb</div>
+              {work.tags.map((tag) => <div className="used" key={tag}>#{tag}</div>)}
               <div className="content">
-                <span>학교 측 서버 호스트 이용</span>
-                <span>학교 측 관리자 전용 페이지 개발</span>
-                <span></span>
+                {work.details.map((detail) => <span key={detail}>{detail}</span>)}
               </div>
             </div>
             <div className="work_card_bottom">
               <hr></hr>
-              <div className="work_company">충북대학교 그린엔진 및 에너지 시스템 연구실</div>
-              <div className="date">2020.04.08~2021.02.01</div>
+              <div className="work_company">{work.company}</div>
+              <div className="date">{work.period}</div>
             </div>
-          </>
-          <>
-            <div className="work_card_top">
-              <div className="work_title">회사 홈페이지 제작 및 유지보수</div>
-              <div className="work_url"><a href="http://customlab.site" target="_blank" rel="noopener noreferrer">http://customlab.site</a></div>
-              <hr></hr>
-            </div>
-            <div className="work_card_middle">
-              <div className="used">#nodejs</div>
-              <div className="used">#mysql</div>
-              <div className="content">
-                <span>네이버스토어 상품 목록 스크래핑</span>
-                <span>CRUD, 회원 관리</span>
-                <span>카카오톡/네이버 로그인</span>
-                <span></span>
-              </div>
-            </div>
-            <div className="work_card_bottom">
-            <hr></hr>
-              <div className="work_company">커스텀랩(customlab)</div>
-              <div className="date">2020.08.25~2021.02.01</div>
-            </div>
-          </>
+          </React.Fragment>
+        ))}
       </Carousel>
     </div>
-  );}
+  );
+}
 
 export default Work;

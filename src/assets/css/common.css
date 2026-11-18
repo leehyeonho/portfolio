@@ -8,26 +8,20 @@
   C
 } */
 
+/* 롯데마트 드림체 서브셋 (ASCII + KS X 1001 한글). 생성: scripts/subset-fonts.py */
 @font-face {
   font-family: 'LotteMartDream';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('https://cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff2') format('woff2'), url('https://cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff') format('woff');
+  src: url('../fonts/LotteMartDream-Medium.subset.woff2') format('woff2');
 }
 @font-face {
   font-family: 'LotteMartDream';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('https://cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamBold.woff2') format('woff2'), url('https://cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamBold.woff') format('woff');
-}
-@font-face {
-  font-family: 'LotteMartDream';
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: url('https://cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamLight.woff2') format('woff2'), url('https://cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamLight.woff') format('woff');
+  src: url('../fonts/LotteMartDream-Bold.subset.woff2') format('woff2');
 }
 .lottemartdream * {
  font-family: 'LotteMartDream', sans-serif;

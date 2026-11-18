@@ -24,4 +24,13 @@ export const PROJECTS = [
     details: ['CRUD, 회원 관리, 장바구니', '카카오톡 결제API(test)'],
     period: '2019.04.15~2020.06.10',
   },
+  {
+    title: '실시간 그림 맞추기 게임 (캐치마인드)',
+    tags: ['java', 'spring', 'websocket'],
+    details: [
+      '그린아카데미 Java 기반 응용SW엔지니어링 과정의 팀 프로젝트',
+      'WebSocket으로 그림과 채팅을 실시간 공유하는 그림 맞추기 게임 구현',
+    ],
+    period: '2021.04~2021.10',
+  },
 ];

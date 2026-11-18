@@ -60,3 +60,9 @@
 .carousel_page.now {
   background: #b1cfeb;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel_viewport > ul {
+    transition: none;
+  }
+}

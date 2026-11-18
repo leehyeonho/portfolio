@@ -6,9 +6,9 @@ import '../assets/css/Work.css';
 
 function Work() {
   return (
-    <div className="container work_Container" id="work_Container">
+    <section className="container work_Container" id="work_Container">
       <div className="container_top">
-        <h1 className="work_experiences">Work Experiences</h1>
+        <h2 className="work_experiences">Work Experiences</h2>
         <hr className="hr_work_experiences"></hr>
       </div>
       <Carousel className="inner_container" listClassName="work_list" itemClassName="work_card"
@@ -36,7 +36,7 @@ function Work() {
           </React.Fragment>
         ))}
       </Carousel>
-    </div>
+    </section>
   );
 }
 

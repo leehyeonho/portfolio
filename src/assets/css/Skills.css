@@ -17,7 +17,7 @@
   }
 }
 
-.skills_Container h1 {
+.skills_Container h2 {
   font-size: 40px;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .skills_Container ul li .icon {
-  color: #868e96;
+  color: #5c636a;
 }
 
 .skills_Container ul li .icon:hover {
@@ -42,7 +42,7 @@
 }
 
 .skills_Container ul li p {
-  color: #868e96;
+  color: #5c636a;
   font-size: 1.4rem;
 }
 

@@ -6,9 +6,9 @@ import '../assets/css/Project.css';
 
 function Project() {
   return (
-    <div className="container project_Container" id="project_Container">
+    <section className="container project_Container" id="project_Container">
       <div className="container_top">
-        <h1 className="project_title">Personal Project</h1>
+        <h2 className="project_title">Personal Project</h2>
         <hr className="hr_project_experiences"></hr>
       </div>
       <Carousel className="inner_container" listClassName="project_list" itemClassName="project_card"
@@ -18,7 +18,8 @@ function Project() {
             <div className="project_card_top">
               <div className="project_title">{project.title}</div>
               <div className="project_url">
-                <a href={project.url} target="_blank" rel="noopener noreferrer">github link</a>
+                <a href={project.url} target="_blank" rel="noopener noreferrer"
+                  aria-label={`${project.title} GitHub 저장소 (새 창)`}>github link</a>
               </div>
               <hr></hr>
             </div>
@@ -35,7 +36,7 @@ function Project() {
           </React.Fragment>
         ))}
       </Carousel>
-    </div>
+    </section>
   );
 }
 

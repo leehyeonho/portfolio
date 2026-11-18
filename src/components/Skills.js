@@ -5,8 +5,8 @@ import { SKILLS } from '../data/skills';
 
 function Skills() {
   return (
-    <div className="container skills_Container" id="skills_Container">
-      <h1 className="skills">Skills</h1>
+    <section className="container skills_Container" id="skills_Container">
+      <h2 className="skills">Skills</h2>
       <hr className="hr_skills"></hr>
       <ul>
         {SKILLS.map(({ name, icon, image }) => (
@@ -25,7 +25,7 @@ function Skills() {
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 }
 

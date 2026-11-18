@@ -6,8 +6,8 @@ import { CERTIFICATES } from '../data/certificates';
 
 function Certificates() {
   return (
-    <div className="container Certificates_Container" id="Certificates_Container">
-      <h1 className="Certificates">Certificates</h1>
+    <section className="container Certificates_Container" id="Certificates_Container">
+      <h2 className="Certificates">Certificates</h2>
       <hr className="hr_Certificates"></hr>
       <Carousel
         className="cert_inner_container"
@@ -20,11 +20,11 @@ function Certificates() {
         {CERTIFICATES.map(({ title, image }) => (
           <React.Fragment key={title}>
             <div className="blur">{title}</div>
-            <img src={image} alt={title}></img>
+            <img src={image} alt={title} loading="lazy"></img>
           </React.Fragment>
         ))}
       </Carousel>
-    </div>
+    </section>
   );
 }
 

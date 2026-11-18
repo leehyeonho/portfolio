@@ -7,13 +7,13 @@ import { PROFILE } from '../data/profile';
 
 function Aboutme() {
   return (
-    <div className="container about_me_container" id="about_me_container">
+    <section className="container about_me_container" id="about_me_container">
       <div className="container_top">
-        <h1 className="about_me">About Me</h1>
+        <h2 className="about_me">About Me</h2>
         <hr className="hr_about_me"></hr>
       </div>
       <div className="inner_container">
-        <div className="about_me_img">
+        <div className="about_me_img" role="img" aria-label="이현호 프로필 사진">
         </div>
         <div className="about_me">
           <span className="name">
@@ -30,7 +30,7 @@ function Aboutme() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

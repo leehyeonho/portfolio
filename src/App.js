@@ -12,11 +12,14 @@ function App() {
   return (
     <div>
       <Header />
-      <Aboutme />
-      <Skills />
-      <Work />
-      <Project />
-      <Certificates />
+      <main>
+        <h1 className="sr-only">이현호 포트폴리오</h1>
+        <Aboutme />
+        <Skills />
+        <Work />
+        <Project />
+        <Certificates />
+      </main>
     </div>
   );
 }

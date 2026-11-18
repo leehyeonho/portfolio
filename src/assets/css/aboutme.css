@@ -1,89 +1,58 @@
-.about_me_container {
-  padding-top: 50px;
-}
-
-.about_me_container .inner_container{
+.about_inner {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  gap: 48px;
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: left;
 }
 
-.about_me_img{
-  width: 150px;
-  height: 195px;
+.about_me_img {
+  flex: none;
+  width: 180px;
+  height: 234px;
   background: no-repeat url("../images/about_me_img.webp");
   background-size: cover;
   border-radius: 25%;
 }
-@media screen and (max-width: 540px) {
-  .about_me_container .inner_container{
-    display: flex;
+
+.about_name {
+  margin: 0 0 12px;
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* 타이핑 중에도 높이가 바뀌지 않도록 두 줄 분량을 확보한다 */
+.about_intro {
+  min-height: 7em;
+  margin-bottom: 8px;
+  font-size: clamp(1.6rem, 2.2vw, 2rem);
+  color: var(--muted);
+}
+
+.about_intro .typing_text {
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .about_inner {
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .about_me_img{
-    width: 112px;
-    height: 155px;
-    background: no-repeat url("../images/about_me_img.webp");
-    background-size: cover;
-    border-radius: 25%;
-    margin-bottom: 10px;
-  }
-}
-
-.about_me .name {
-  font-size: 5vw;
-}
-
-.about_me #content {
-  font-size: 2vw;
-  color: #666;
-  height: 20vh;
-  min-height:155px;
-  width: 60vw;
-  min-width: 330px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.contact_me {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.sns_tag a {
-  color: #333;
-  border-radius: 5vw;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 25px;
-  width: 50px;
-  height: 50px;
-  margin: 0 5px;
-  position: relative;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  transition: 0.2s ease-in;
-}
-
-/* Hover Transition */
-.google:hover,
-.github:hover,
-.google:focus-visible,
-.github:focus-visible {
-  color: white;
-  background-color: black;
-}
-
-/* Media Query */
-@media (max-width: 1000px) {
-  .sns_tag {
+    gap: 24px;
     text-align: center;
+  }
+
+  .about_me_img {
+    width: 130px;
+    height: 169px;
+  }
+
+  .about_intro {
+    min-height: 6em;
+  }
+
+  .about_inner .contact_links {
+    justify-content: center;
   }
 }

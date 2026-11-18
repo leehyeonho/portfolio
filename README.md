@@ -38,6 +38,10 @@ npm run preview   # 빌드 결과 미리보기
 | `profile.js` | 이름, 연락처, 내비게이션 항목 |
 
 배열에 객체를 추가하면 카드가 자동으로 늘어납니다.
+
+- **프로젝트 스크린샷**: `projects.js`(또는 `work.js`)의 항목에 `image`를 지정하면 카드 상단에 표시됩니다.
+  `import shot from '../assets/images/projects/pofo.webp'`처럼 가져와 `image: shot`으로 넣으세요. (16:9, 가로 800px 안팎의 WebP 권장)
+- **이력서 링크**: PDF를 `public/`에 넣고 `profile.js`의 `resume`에 파일명(예: `'resume.pdf'`)을 적으면 이메일/GitHub 옆에 이력서 버튼이 나타납니다.
 자격증 이미지는 가로 800px 정도의 WebP로 `src/assets/images/Certificates/`에 추가하세요.
 
 ## 폰트

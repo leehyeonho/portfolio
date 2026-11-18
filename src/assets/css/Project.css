@@ -19,10 +19,7 @@
 
 .project_list{
   display: flex;
-  width: 3000px;
-  overflow: hidden;
   perspective: 1500px;
-  padding: 0;
 }
 .project_list.hidden{
   display: none;

@@ -1,4 +1,6 @@
 import React from 'react';
+import Carousel from './Carousel';
+import { CARD_BREAKPOINTS } from './breakpoints';
 import '../assets/css/Work.css';
 
 function Work() {
@@ -8,10 +10,9 @@ function Work() {
         <h1 className="work_experiences">Work Experiences</h1>
         <hr className="hr_work_experiences"></hr>
       </div>
-      <div className="inner_container">
-        <button id="work_prev">PREV</button>
-        <ul className="work_list">
-          <li className="work_card">
+      <Carousel className="inner_container" listClassName="work_list" itemClassName="work_card"
+        breakpoints={CARD_BREAKPOINTS} gap={30}>
+          <>
             <div className="work_card_top">
               <div className="work_title">연구실 홈페이지 제작 및 유지보수</div>
               <div className="work_url"><a href="http://genesys.chungbuk.ac.kr" target="_blank" rel="noopener noreferrer">http://genesys.chungbuk.ac.kr</a></div>
@@ -32,8 +33,8 @@ function Work() {
               <div className="work_company">충북대학교 그린엔진 및 에너지 시스템 연구실</div>
               <div className="date">2020.04.08~2021.02.01</div>
             </div>
-          </li>
-          <li className="work_card">
+          </>
+          <>
             <div className="work_card_top">
               <div className="work_title">회사 홈페이지 제작 및 유지보수</div>
               <div className="work_url"><a href="http://customlab.site" target="_blank" rel="noopener noreferrer">http://customlab.site</a></div>
@@ -54,10 +55,8 @@ function Work() {
               <div className="work_company">커스텀랩(customlab)</div>
               <div className="date">2020.08.25~2021.02.01</div>
             </div>
-          </li>
-        </ul>
-        <button id="work_next">NEXT</button>
-      </div>
+          </>
+      </Carousel>
     </div>
   );}
 

@@ -66,31 +66,6 @@ li{
   text-decoration: none;
 }
 
-button{
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  border: none;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.8);
-  cursor: pointer;
-  z-index: 100;
-}
-
-.aroowBtn{
-  background: rgba(56, 156, 238, 0.5);
-}
-
-#work_prev, #project_prev{
-  top: calc(50% - 50px);
-  left: 0;
-}
-
-#work_next, #project_next{
-  top: calc(50% - 50px);
-  right: 0;
-}
-
 .container{
   text-align: center;
   padding-top: 50px;
